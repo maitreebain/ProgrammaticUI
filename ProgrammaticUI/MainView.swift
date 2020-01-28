@@ -33,7 +33,7 @@ class MainView: UIView {
     
     //create a button
     public lazy var resetButton: UIButton = {
-       let button = UIButton()
+        let button = UIButton()
         button.setTitle("Reset", for: .normal)
         button.backgroundColor = .systemPink
         return button
@@ -78,10 +78,12 @@ class MainView: UIView {
     }
     
     private func setUpResetButtonConstraints() {
+        //steps for ADDING constraints with code
+        //1.
         addSubview(resetButton)
-        
+        //2.
         resetButton.translatesAutoresizingMaskIntoConstraints = false
-        
+        //3.
         NSLayoutConstraint.activate([
             resetButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             resetButton.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 40)

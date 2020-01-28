@@ -27,6 +27,9 @@ class MainViewController: UIViewController {
         
         view.backgroundColor = .systemPurple
         configureNavBar()
+        
+        //add target action for reset button
+        mainView.resetButton.addTarget(self, action: #selector(resetAppColor(_:)), for: .touchUpInside)
     }
     
     private func configureNavBar() {
@@ -42,5 +45,9 @@ class MainViewController: UIViewController {
         
     }
     
+    @objc private func resetAppColor(_ sender: UIButton) {
+        print("reset app color")
+        
+    }
 }
 
