@@ -8,6 +8,10 @@
 
 import UIKit
 
+struct AppKey {
+    static let appColorKey = "app Color"
+}
+
 class SettingsViewController: UIViewController {
 
     private let settingsView = SettingsView()
@@ -18,6 +22,8 @@ class SettingsViewController: UIViewController {
     override func loadView() {
         view = settingsView
     }
+    
+    //persist the persisted color from main view later
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +36,6 @@ class SettingsViewController: UIViewController {
         let colorName = colors[0]
         view.backgroundColor = UIColor(named: colorName)
     }
-    
-
 
 }
 
@@ -57,6 +61,9 @@ extension SettingsViewController: UIPickerViewDelegate{
         let colorName = colors[row]
         
         view.backgroundColor = UIColor(named: colorName)
+        
+        //save color name to user defaults
+        UserDefaults.standard.set(colorName, forKey: AppKey.appColorKey)
     }
     
 }
